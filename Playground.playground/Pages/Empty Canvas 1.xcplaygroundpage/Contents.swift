@@ -1,15 +1,18 @@
 //: [Previous](@previous) / [Next](@next)
+//: # Introduction
+//:
+//: This is a playground that will let you draw shapes and other graphics easily.
 /*:
-## Canvas size
+ ## Canvas size
  
- Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
+ Set the size of your desired canvas by adjusting the constants on lines 10 and 11.
  */
-let preferredWidth = 600
-let preferredHeight = 600
+let preferredWidth = 480
+let preferredHeight = 480
 /*:
  ## Required code
  
- Lines 16 to 30 are required to make the playground run.
+ Lines 19 to 27 are required to make the playground run.
  
  Please do not remove.
  */
@@ -20,64 +23,52 @@ import CanvasGraphics
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
-// Create a turtle that can draw upon the canvas
-let turtle = Tortoise(drawingUpon: canvas)
-
-// Create a pen that can draw upon the canvas
-let p = Pen(drawingUpon: canvas)
-
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
-
-/*:
- ## Optional code
- 
- Below are two generally helpful configurations.
- 
- If you do not wish to work in all four quadrants of the Cartesian plane, comment out the code on line 44.
- 
- If you do not wish to see a grid, comment out the code on line 48.
- 
- */
-
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
-
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
-
 /*:
  ## Add your code
  
- Beginning on line 61, you can add your own code.
-  
+ Beginning on line 38, write a meaningful comment.
+ 
+ You can remove the code on line 39 and begin writing your own code.
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
  */
 
-// Begin writing your code below (you can remove the examples shown)
+//Draw the grid
+canvas.drawAxes(withScale: true,
+                by: 20,
+                color: Color.black)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+//Draw bottom circle of snowman
+canvas.drawShapesWithFill = true
+canvas.fillColor = Color.white
+canvas.drawEllipse(at: Point(x: 250, y: 140), width: 250, height: 250)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//Draw middle circle of snowman
+canvas.fillColor = Color.white
+canvas.drawEllipse(at: Point(x: 250, y: 320), width: 130, height: 130)
 
-// Go back to origin
-p.goToOrigin()
+//Draw top circle of snowman (the head)
+canvas.fillColor = Color.white
+canvas.drawEllipse(at: Point(x: 250, y: 420), width: 80, height: 80)
 
-// Change the pen color
-p.penColor = .red
+//Draw the left eye of the snwoman
+canvas.fillColor = Color.black
+canvas.drawEllipse(at: Point(x: 230, y: 430), width: 20, height: 20)
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+//Draw the right eye
+canvas.drawEllipse(at: Point(x: 270, y: 430), width: 20, height: 20)
+
+
+canvas.highPerformance = false
+
 
 /*:
- ## Show the Live View
+ ## Show the Assistant Editor
  Don't see any results?
  
- Remember to show the Live View (1 then 2):
+ Remember to show the Assistant Editor (1), and then switch to Live View (2):
  
  ![timeline](timeline.png "Timeline")
 
