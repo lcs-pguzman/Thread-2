@@ -42,24 +42,49 @@ canvas.drawAxes(withScale: true,
 
 //Draw bottom circle of snowman
 canvas.drawShapesWithFill = true
-canvas.fillColor = Color.white
+canvas.fillColor = .white
 canvas.drawEllipse(at: Point(x: 250, y: 140), width: 250, height: 250)
 
 //Draw middle circle of snowman
-canvas.fillColor = Color.white
 canvas.drawEllipse(at: Point(x: 250, y: 320), width: 130, height: 130)
 
 //Draw top circle of snowman (the head)
-canvas.fillColor = Color.white
 canvas.drawEllipse(at: Point(x: 250, y: 420), width: 80, height: 80)
 
 //Draw the left eye of the snwoman
-canvas.fillColor = Color.black
+canvas.fillColor = .black
 canvas.drawEllipse(at: Point(x: 230, y: 430), width: 20, height: 20)
 
 //Draw the right eye
 canvas.drawEllipse(at: Point(x: 270, y: 430), width: 20, height: 20)
 
+//Draw nose
+canvas.drawLine(from: Point(x: 250, y: 420),
+                to: Point(x: 240, y: 410))
+canvas.drawLine(from: Point(x: 240, y: 410), to: Point(x: 250, y: 410))
+
+//Draw the mouth
+//Do in class
+
+//Draw the left arm
+canvas.drawLine(from: Point(x: 185, y: 320), to: Point(x: 140, y: 320))
+
+//Draw the 3 fingers of the left arm
+canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 340))
+canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 320))
+canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 300))
+
+//Draw the right arm
+canvas.drawLine(from: Point(x: 315, y: 320), to: Point(x: 360, y: 320))
+
+//Draw the 3 fingers of the right arm
+canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 340))
+canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 320))
+
+canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 300))
+
+//Draw the buttons on the middle circle
+canvas.fillColor = .black
 
 canvas.highPerformance = false
 
