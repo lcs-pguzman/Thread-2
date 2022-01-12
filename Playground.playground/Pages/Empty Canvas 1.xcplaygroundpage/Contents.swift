@@ -59,12 +59,15 @@ canvas.drawEllipse(at: Point(x: 230, y: 430), width: 20, height: 20)
 canvas.drawEllipse(at: Point(x: 270, y: 430), width: 20, height: 20)
 
 //Draw nose
+canvas.fillColor = .orange
 canvas.drawLine(from: Point(x: 250, y: 420),
                 to: Point(x: 240, y: 410))
 canvas.drawLine(from: Point(x: 240, y: 410), to: Point(x: 250, y: 410))
+canvas.drawLine(from: Point(x: 250, y: 410), to: Point(x: 250, y: 420))
 
 //Draw the mouth
-//Do in class
+canvas.drawShapesWithFill = false
+canvas.drawEllipse(at: Point(x: 250, y: 395), width: 40, height: 20)
 
 //Draw the left arm
 canvas.drawLine(from: Point(x: 185, y: 320), to: Point(x: 140, y: 320))
@@ -84,7 +87,13 @@ canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 320))
 canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 300))
 
 //Draw the buttons on the middle circle
+canvas.drawShapesWithFill = true
 canvas.fillColor = .black
+canvas.drawEllipse(at: Point(x: 250, y: 360), width: 20, height: 20)
+canvas.drawEllipse(at: Point(x: 250, y: 325), width: 20, height: 20)
+canvas.drawEllipse(at: Point(x: 250, y: 285), width: 20, height: 20)
+
+
 
 canvas.highPerformance = false
 
