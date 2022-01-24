@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -28,25 +28,6 @@ let p = Pen(drawingUpon: canvas)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
-
-/*:
- ## Optional code
- 
- Below are two generally helpful configurations.
- 
- If you do not wish to work in all four quadrants of the Cartesian plane, comment out the code on line 44.
- 
- If you do not wish to see a grid, comment out the code on line 48.
- 
- */
-
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
-
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
-
 /*:
  ## Add your code
  
@@ -55,23 +36,44 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+//Start
+//Draw green background
+canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-// Begin writing your code below (you can remove the examples shown)
+//Draw black background below
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 400)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
 
-// Go back to origin
-p.goToOrigin()
+//draw the circles
 
-// Change the pen color
-p.penColor = .red
+for yValue in stride(from: 0, through: 400, by: 40) {
+    
+    for xValue in stride(from: 0,through: 400, by: 40) {
+        
+        if xValue + yValue == 400{
+            canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+        } else if xValue + yValue == 360{
+            canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+        } else if xValue + yValue == 320 {
+            canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+        } else if xValue + yValue == 280{
+            canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+        } else {
+            canvas.fillColor = .blue
+        }
+        //code to draw circles
+        canvas.drawEllipse(at: Point(x: xValue , y: yValue), width: 35, height: 35)
+    }
+}
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+// Show a grid
+canvas.lineColor = .white
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+
 
 /*:
  ## Show the Live View

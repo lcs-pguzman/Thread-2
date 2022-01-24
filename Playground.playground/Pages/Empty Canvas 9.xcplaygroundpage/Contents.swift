@@ -40,12 +40,31 @@ PlaygroundPage.current.liveView = canvas
  
  */
 
-// Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+// Draw a grid of circles
+canvas.textColor = .red
+for xPosition in stride(from: 0, through: 400, by: 40) {
+    for yPosition in stride(from: 0, through: 400, by: 40) {
+        
+        //Conditionally change the fill color
+        if yPosition == 400 {
+            canvas.fillColor = .yellow
+        } else {
+            canvas.fillColor = .blue
+        }
+        
+        // Draw the circle
+        canvas.drawEllipse(at: Point(x: xPosition,
+                                     y: yPosition),
+                           width: 36, height: 36)
+        
+        // Where is this circle?
+        canvas.drawText(message: "(\(xPosition), \n\(yPosition))",
+                        at: Point(x: xPosition, y: yPosition - 10),
+                        size: 8)
 
-// Show a grid
-canvas.drawAxes(withScale: true, by: 20, color: .black)
+        
+    }
+}
 
 /*:
  ## Add your code
@@ -56,22 +75,7 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
  */
 
-// Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
-
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
-
-// Go back to origin
-p.goToOrigin()
-
-// Change the pen color
-p.penColor = .red
-
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
 
 /*:
  ## Show the Live View

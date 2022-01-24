@@ -25,78 +25,97 @@ let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
-/*:
- ## Add your code
- 
- Beginning on line 38, write a meaningful comment.
- 
- You can remove the code on line 39 and begin writing your own code.
- 
- [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
- */
 
 //Draw the grid
 canvas.drawAxes(withScale: true,
                 by: 20,
                 color: Color.black)
 
-//Draw bottom circle of snowman
+//Draw background for snowman
 canvas.drawShapesWithFill = true
+canvas.fillColor = .blue
+canvas.drawEllipse(at: Point(x: 250,
+                             y: 250),
+                   width: 1000, height: 1000)
+
+//Draw bottom circle of snowman
 canvas.fillColor = .white
-canvas.drawEllipse(at: Point(x: 250, y: 140), width: 250, height: 250)
+canvas.drawEllipse(at: Point(x: 250, y: 140),
+                   width: 250, height: 250)
 
 //Draw middle circle of snowman
-canvas.drawEllipse(at: Point(x: 250, y: 320), width: 130, height: 130)
+canvas.drawEllipse(at: Point(x: 250, y: 320),
+                   width: 130, height: 130)
 
 //Draw top circle of snowman (the head)
-canvas.drawEllipse(at: Point(x: 250, y: 420), width: 80, height: 80)
+canvas.drawEllipse(at: Point(x: 250, y: 420),
+                   width: 80, height: 80)
 
 //Draw the left eye of the snwoman
 canvas.fillColor = .black
-canvas.drawEllipse(at: Point(x: 230, y: 430), width: 20, height: 20)
+canvas.drawEllipse(at: Point(x: 230, y: 430),
+                   width: 20, height: 20)
 
 //Draw the right eye
-canvas.drawEllipse(at: Point(x: 270, y: 430), width: 20, height: 20)
+canvas.drawEllipse(at: Point(x: 270, y: 430),
+                   width: 20, height: 20)
 
 //Draw nose
+//Say the vertices of the nose shape
 canvas.fillColor = .orange
-canvas.drawLine(from: Point(x: 250, y: 420),
-                to: Point(x: 240, y: 410))
-canvas.drawLine(from: Point(x: 240, y: 410), to: Point(x: 250, y: 410))
-canvas.drawLine(from: Point(x: 250, y: 410), to: Point(x: 250, y: 420))
+var verticesOfSomeShape: [Point] = []
+verticesOfSomeShape.append(Point(x: 250, y: 420))
+verticesOfSomeShape.append(Point(x: 240, y: 410))
+verticesOfSomeShape.append(Point(x: 250, y: 410))
+//Draw the custom nose shape
+canvas.drawCustomShape(with: verticesOfSomeShape)
 
 //Draw the mouth
-canvas.drawShapesWithFill = false
-canvas.drawEllipse(at: Point(x: 250, y: 395), width: 40, height: 20)
+canvas.drawCurve(from: Point(x: 230, y: 400),
+                 to: Point(x: 270, y: 400),
+                 control1: Point(x: 230, y: 380),
+                 control2: Point(x: 270, y: 380 ))
 
 //Draw the left arm
 canvas.drawLine(from: Point(x: 185, y: 320), to: Point(x: 140, y: 320))
 
 //Draw the 3 fingers of the left arm
-canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 340))
-canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 320))
-canvas.drawLine(from: Point(x: 140, y: 320), to: Point(x: 120, y: 300))
+canvas.drawLine(from: Point(x: 140, y: 320),
+                to: Point(x: 120, y: 340))
+
+canvas.drawLine(from: Point(x: 140, y: 320),
+                to: Point(x: 120, y: 320))
+
+canvas.drawLine(from: Point(x: 140, y: 320),
+                to: Point(x: 120, y: 300))
 
 //Draw the right arm
-canvas.drawLine(from: Point(x: 315, y: 320), to: Point(x: 360, y: 320))
+canvas.drawLine(from: Point(x: 315, y: 320),
+                to: Point(x: 360, y: 320))
 
 //Draw the 3 fingers of the right arm
-canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 340))
-canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 320))
+canvas.drawLine(from: Point(x: 360, y: 320),
+                to: Point(x: 380, y: 340))
 
-canvas.drawLine(from: Point(x: 360, y: 320), to: Point(x: 380, y: 300))
+canvas.drawLine(from: Point(x: 360, y: 320),
+                to: Point(x: 380, y: 320))
+
+canvas.drawLine(from: Point(x: 360, y: 320),
+                to: Point(x: 380, y: 300))
 
 //Draw the buttons on the middle circle
 canvas.drawShapesWithFill = true
 canvas.fillColor = .black
-canvas.drawEllipse(at: Point(x: 250, y: 360), width: 20, height: 20)
-canvas.drawEllipse(at: Point(x: 250, y: 325), width: 20, height: 20)
-canvas.drawEllipse(at: Point(x: 250, y: 285), width: 20, height: 20)
+canvas.drawEllipse(at: Point(x: 250, y: 360),
+                   width: 20, height: 20)
 
+canvas.drawEllipse(at: Point(x: 250, y: 325),
+                   width: 20, height: 20)
 
+canvas.drawEllipse(at: Point(x: 250, y: 285),
+                   width: 20, height: 20)
 
-canvas.highPerformance = false
-
+canvas.highPerformance = true
 
 /*:
  ## Show the Assistant Editor
