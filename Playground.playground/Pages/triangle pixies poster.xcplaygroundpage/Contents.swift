@@ -16,6 +16,7 @@ let preferredHeight = 600
 import Cocoa
 import PlaygroundSupport
 import CanvasGraphics
+import Darwin
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -50,7 +51,7 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.drawAxes(withScale: true, by: 50, color: .white)
 
 //draw triangles
-canvas.fillColor = .white
+canvas.fillColor = .yellow
 
 for xValue in stride(from: 0, through: 400, by: 40) {
     for yValue in stride(from: 200, through: 600, by: 40) {
@@ -61,11 +62,14 @@ for xValue in stride(from: 0, through: 400, by: 40) {
         verticesOfSomeShape.append(Point(x: xValue + 40, y: yValue + 0))
         canvas.drawCustomShape(with: verticesOfSomeShape)
         
-        if yValue < 240 {
+        if yValue <= xValue + 160 {
             canvas.fillColor = .yellow
-        } else if xValue == 0 {
-            canvas.fillColor = .blue
+        } else if yValue >= 600 {
+            canvas.fillColor = .yellow
+        } else {
+            canvas.fillColor = .white
         }
+        canvas.drawText(message: "\(xValue), \n\(yValue - 200))",at: Point(x: xValue, y: yValue - 10),size: 8)
     }
 }
 
