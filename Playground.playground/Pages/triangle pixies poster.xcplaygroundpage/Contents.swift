@@ -46,10 +46,6 @@ PlaygroundPage.current.liveView = canvas
 canvas.fillColor = .orange
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-
-//draw the grid
-canvas.drawAxes(withScale: true, by: 50, color: .white)
-
 //draw triangles
 canvas.fillColor = .yellow
 
@@ -73,7 +69,8 @@ for xValue in stride(from: 0, through: 400, by: 40) {
     }
 }
 
-
+//draw text
+canvas.drawText(message: "talking heads", at: Point(x: 25, y: 140), size: 30, kerning: 0)
 
 /*:
  ## Add your code
