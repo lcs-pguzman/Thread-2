@@ -28,6 +28,7 @@ let p = Pen(drawingUpon: canvas)
 
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
+
 /*:
  ## Add your code
  
@@ -35,7 +36,7 @@ PlaygroundPage.current.liveView = canvas
   
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
- */
+ 
 //Start
 //Draw green background
 canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
@@ -45,29 +46,31 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 canvas.fillColor = .black
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 400)
 
-
-
 //draw the circles
-
 for yValue in stride(from: 0, through: 400, by: 40) {
     
-    for xValue in stride(from: 0,through: 400, by: 40) {
+    for xValue in stride(from: 0, through: 400, by: 40) {
         
-        if xValue + yValue == 400{
+        if xValue + yValue > 400 {
             canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
-        } else if xValue + yValue == 360{
+        } else if xValue == 0 {
             canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
-        } else if xValue + yValue == 320 {
+        } else if xValue == 400 {
             canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
-        } else if xValue + yValue == 280{
+        } else if yValue == 400 {
+            canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
+        } else if yValue == 0 {
             canvas.fillColor = Color(hue: 107, saturation: 63, brightness: 73, alpha: 100)
         } else {
-            canvas.fillColor = .blue
+            canvas.fillColor = .white
         }
         //code to draw circles
         canvas.drawEllipse(at: Point(x: xValue , y: yValue), width: 35, height: 35)
     }
 }
+
+//write 'Pixies'
+canvas.drawText(message: "pixies", at: Point(x: 50, y: 425))
 
 // Show a grid
 canvas.lineColor = .white

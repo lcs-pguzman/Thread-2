@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 400
 let preferredHeight = 600
 /*:
  ## Required code
@@ -40,31 +40,36 @@ PlaygroundPage.current.liveView = canvas
  
  */
 
-// Draw a grid of circles
-canvas.textColor = .red
-for xPosition in stride(from: 0, through: 400, by: 40) {
-    for yPosition in stride(from: 0, through: 400, by: 40) {
+// Begin
+//background
+canvas.fillColor = .orange
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+
+
+//draw the grid
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+//draw triangles
+canvas.fillColor = .white
+
+for xValue in stride(from: 0, through: 400, by: 40) {
+    for yValue in stride(from: 200, through: 600, by: 40) {
         
-        //Conditionally change the fill color
-        if yPosition == 400 {
+        var verticesOfSomeShape: [Point] = []
+        verticesOfSomeShape.append(Point(x: xValue + 0, y: yValue + 0))
+        verticesOfSomeShape.append(Point(x: xValue + 40, y: yValue + 40))
+        verticesOfSomeShape.append(Point(x: xValue + 40, y: yValue + 0))
+        canvas.drawCustomShape(with: verticesOfSomeShape)
+        
+        if yValue < 240 {
             canvas.fillColor = .yellow
-        } else {
+        } else if xValue == 0 {
             canvas.fillColor = .blue
         }
-        
-        // Draw the circle
-        canvas.drawEllipse(at: Point(x: xPosition,
-                                     y: yPosition),
-                           width: 36, height: 36)
-        
-        // Where is this circle?
-        canvas.drawText(message: "(\(xPosition), \n\(yPosition))",
-                        at: Point(x: xPosition, y: yPosition - 10),
-                        size: 8)
-
-        
     }
 }
+
+
 
 /*:
  ## Add your code
