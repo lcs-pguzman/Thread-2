@@ -73,13 +73,13 @@ canvas.drawText(message: "Travis Scott", at: Point(x: 95, y: 525), size: 21, ker
 //Begin drawing shapes inside blue background (bottom half)
 //Triangle grid (vertically standing)
 canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
-for xposTriangle in stride(from: 0, through: 189, by: 75) {
-    for yposTriangle in stride(from: 0, through: 200, by: 100) {
+for xposTriangle1 in stride(from: 0, through: 189, by: 75) {
+    for yposTriangle1 in stride(from: 0, through: 200, by: 100) {
         
         var verticesofTriangle: [Point] = []
-        verticesofTriangle.append(Point(x: xposTriangle + 0, y: yposTriangle + 50))
-        verticesofTriangle.append(Point(x: xposTriangle + 25, y: yposTriangle + 100))
-        verticesofTriangle.append(Point(x: xposTriangle + 50, y: yposTriangle + 50))
+        verticesofTriangle.append(Point(x: xposTriangle1 + 0, y: yposTriangle1 + 50))
+        verticesofTriangle.append(Point(x: xposTriangle1 + 25, y: yposTriangle1 + 100))
+        verticesofTriangle.append(Point(x: xposTriangle1 + 50, y: yposTriangle1 + 50))
         canvas.drawCustomShape(with: verticesofTriangle)
         
     }
@@ -102,6 +102,25 @@ canvas.drawRectangle(at: Point(x: 50, y: 0), width: 25, height: 125)
 canvas.drawRectangle(at: Point(x: 125, y: 0), width: 25, height: 125)
 canvas.drawRectangle(at: Point(x: 50, y: 150), width: 25, height: 150)
 canvas.drawRectangle(at: Point(x: 125, y: 150), width: 25, height: 150)
+
+//Draw horizontal triangle grid
+canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
+for xposTriangle2 in stride(from: 250, through: 350, by: 100) {
+    for yposTriangle2 in stride(from: 0, through: 275, by: 75) {
+        
+        var verticesofTriangle: [Point] = []
+        verticesofTriangle.append(Point(x: xposTriangle2 + 0, y: yposTriangle2 + 25))
+        verticesofTriangle.append(Point(x: xposTriangle2 + 0 , y: yposTriangle2 + 75))
+        verticesofTriangle.append(Point(x: xposTriangle2 - 50, y: yposTriangle2 + 50))
+        
+        canvas.drawCustomShape(with: verticesofTriangle)
+        
+    }
+}
+
+// Draw the grid
+canvas.drawAxes(withScale: true, by: 25, color: .black)
+
 
 /*:
  ## Show the Live View
