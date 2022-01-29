@@ -58,20 +58,76 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+//Begin drawing shapes in orange background (top half)
+//Draw vertical rectangles
+canvas.fillColor = .white
+canvas.drawRectangle(at: Point(x: 50, y: 500), width: 25, height: 100)
+canvas.drawRectangle(at: Point(x: 50, y: 350), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 350, y: 500), width: 25, height: 100)
+canvas.drawRectangle(at: Point(x: 350, y: 350), width: 25, height: 125)
+//Draw rectangle with triangles in it
+//Draw the rectangle
+canvas.fillColor = Color(hue: 182, saturation: 41, brightness: 63, alpha: 100)
+canvas.drawRectangle(at: Point(x: 100, y: 350), width: 200, height: 125)
+//Draw triangles
+canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
+var verticesoftriangles: [Point] = []
+verticesoftriangles.append(Point(x: 100, y: 350))
+verticesoftriangles.append(Point(x: 150, y: 475))
+verticesoftriangles.append(Point(x: 200, y: 350))
+canvas.drawCustomShape(with: verticesoftriangles)
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+var verticesoftriangles1: [Point] = []
+verticesoftriangles1.append(Point(x: 200, y: 350))
+verticesoftriangles1.append(Point(x: 250, y: 475))
+verticesoftriangles1.append(Point(x: 300, y: 350))
+canvas.drawCustomShape(with: verticesoftriangles1)
 
-// Go back to origin
-p.goToOrigin()
+//Write "Travis Scott"
+canvas.drawText(message: "Travis Scott", at: Point(x: 95, y: 525), size: 21, kerning: 10)
 
-// Change the pen color
-p.penColor = .red
+//Come back later
+//Write Nov. 6, 2021 (date of the concert)
+//Write Houston, Texas
+//Come back later
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+//Begin drawing shapes inside blue background (bottom half)
+//Triangle grid (vertically standing)
+canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
+for xposTriangle in stride(from: 0, through: 189, by: 75) {
+    for yposTriangle in stride(from: 0, through: 200, by: 100) {
+        
+        var verticesofTriangle: [Point] = []
+        verticesofTriangle.append(Point(x: xposTriangle + 0, y: yposTriangle + 50))
+        verticesofTriangle.append(Point(x: xposTriangle + 25, y: yposTriangle + 100))
+        verticesofTriangle.append(Point(x: xposTriangle + 50, y: yposTriangle + 50))
+        canvas.drawCustomShape(with: verticesofTriangle)
+        
+    }
+    
+}
+
+//Circle grid (left half)
+canvas.fillColor = .white
+for yposoriginCircle in stride(from: 25, through: 225, by: 100) {
+    for xposoriginCircle in stride(from: 25, through: 175, by: 75) {
+        
+        canvas.drawEllipse(at: Point(x: xposoriginCircle, y: yposoriginCircle), width: 50, height: 50)
+        
+    }
+}
+
+//Draw rectangles in between the grids
+canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
+canvas.drawRectangle(at: Point(x: 50, y: 0), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 125, y: 0), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 50, y: 150), width: 25, height: 150)
+canvas.drawRectangle(at: Point(x: 125, y: 150), width: 25, height: 150)
+
+//Horizontal
+
+// Draw the grid
+canvas.drawAxes(withScale: true, by: 25, color: .black)
 
 /*:
  ## Show the Live View
