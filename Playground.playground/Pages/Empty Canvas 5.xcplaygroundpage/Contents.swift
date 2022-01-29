@@ -62,6 +62,9 @@ verticesoftriangles1.append(Point(x: 250, y: 475))
 verticesoftriangles1.append(Point(x: 300, y: 350))
 canvas.drawCustomShape(with: verticesoftriangles1)
 
+//Write "Travis Scott"
+canvas.drawText(message: "Travis Scott", at: Point(x: 95, y: 525), size: 21, kerning: 10)
+
 /*:
  ## Show the Live View
  Don't see any results?
