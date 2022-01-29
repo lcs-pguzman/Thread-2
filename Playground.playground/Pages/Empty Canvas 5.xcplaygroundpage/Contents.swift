@@ -65,6 +65,28 @@ canvas.drawCustomShape(with: verticesoftriangles1)
 //Write "Travis Scott"
 canvas.drawText(message: "Travis Scott", at: Point(x: 95, y: 525), size: 21, kerning: 10)
 
+//Come back later
+//Write Nov. 6, 2021 (date of the concert)
+//Write Houston, Texas
+//Come back later
+
+//Begin drawing shapes inside blue background (bottom half)
+//Triangle grid (vertically standing)
+canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
+for xposTriangle in stride(from: 0, through: 189, by: 75) {
+    for yposTriangle in stride(from: 0, through: 200, by: 100) {
+        
+        var verticesofTriangle: [Point] = []
+        verticesofTriangle.append(Point(x: xposTriangle + 0, y: yposTriangle + 50))
+        verticesofTriangle.append(Point(x: xposTriangle + 25, y: yposTriangle + 100))
+        verticesofTriangle.append(Point(x: xposTriangle + 50, y: yposTriangle + 50))
+        canvas.drawCustomShape(with: verticesofTriangle)
+        
+    }
+    
+}
+
+
 /*:
  ## Show the Live View
  Don't see any results?
