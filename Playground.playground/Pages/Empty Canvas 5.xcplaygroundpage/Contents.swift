@@ -96,6 +96,13 @@ for yposoriginCircle in stride(from: 25, through: 225, by: 100) {
     }
 }
 
+//Draw rectangles in between the grids
+canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
+canvas.drawRectangle(at: Point(x: 50, y: 0), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 125, y: 0), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 50, y: 150), width: 25, height: 150)
+canvas.drawRectangle(at: Point(x: 125, y: 150), width: 25, height: 150)
+
 /*:
  ## Show the Live View
  Don't see any results?
