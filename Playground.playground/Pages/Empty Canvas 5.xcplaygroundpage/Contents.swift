@@ -86,6 +86,15 @@ for xposTriangle in stride(from: 0, through: 189, by: 75) {
     
 }
 
+//Circle grid (left half)
+canvas.fillColor = .white
+for yposoriginCircle in stride(from: 25, through: 225, by: 100) {
+    for xposoriginCircle in stride(from: 25, through: 175, by: 75) {
+        
+        canvas.drawEllipse(at: Point(x: xposoriginCircle, y: yposoriginCircle), width: 50, height: 50)
+        
+    }
+}
 
 /*:
  ## Show the Live View
