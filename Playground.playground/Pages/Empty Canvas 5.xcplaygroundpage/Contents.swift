@@ -35,19 +35,23 @@ PlaygroundPage.current.liveView = canvas
 //Draw 400 by 300 cadetblue background
 canvas.fillColor = Color(hue: 182, saturation: 41, brightness: 63, alpha: 100)
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 300)
+
 //Draw 400 by 300 sandybrown
 canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
 canvas.drawRectangle(at: Point(x: 0, y: 300), width: 400, height: 300)
+
 //Draw vertical rectangles
 canvas.fillColor = .white
 canvas.drawRectangle(at: Point(x: 50, y: 500), width: 25, height: 100)
 canvas.drawRectangle(at: Point(x: 50, y: 350), width: 25, height: 125)
 canvas.drawRectangle(at: Point(x: 350, y: 500), width: 25, height: 100)
 canvas.drawRectangle(at: Point(x: 350, y: 350), width: 25, height: 125)
+
 //Draw rectangle with triangles in it
 //Draw the rectangle
 canvas.fillColor = Color(hue: 182, saturation: 41, brightness: 63, alpha: 100)
 canvas.drawRectangle(at: Point(x: 100, y: 350), width: 200, height: 125)
+
 //Draw triangles
 canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
 var verticesoftriangles: [Point] = []
@@ -114,6 +118,16 @@ for xposTriangle2 in stride(from: 250, through: 350, by: 100) {
         verticesofTriangle.append(Point(x: xposTriangle2 - 50, y: yposTriangle2 + 50))
         
         canvas.drawCustomShape(with: verticesofTriangle)
+        
+    }
+}
+
+//Draw the circle grid (right half)
+canvas.fillColor = .white
+for yposoriginCircle1 in stride(from: 50, through: 275, by: 75) {
+    for xposoriginCricle1 in stride(from: 275, through: 375, by: 100) {
+        
+        canvas.drawEllipse(at: Point(x: xposoriginCricle1, y: yposoriginCircle1), width: 50, height: 50)
         
     }
 }
