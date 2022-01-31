@@ -42,8 +42,8 @@ canvas.drawRectangle(at: Point(x: 0, y: 300), width: 400, height: 300)
 
 //Draw vertical rectangles
 canvas.fillColor = .white
-canvas.drawRectangle(at: Point(x: 50, y: 500), width: 25, height: 100)
-canvas.drawRectangle(at: Point(x: 50, y: 350), width: 25, height: 125)
+canvas.drawRectangle(at: Point(x: 25, y: 500), width: 25, height: 100)
+canvas.drawRectangle(at: Point(x: 25, y: 350), width: 25, height: 125)
 canvas.drawRectangle(at: Point(x: 350, y: 500), width: 25, height: 100)
 canvas.drawRectangle(at: Point(x: 350, y: 350), width: 25, height: 125)
 
@@ -67,7 +67,7 @@ verticesoftriangles1.append(Point(x: 300, y: 350))
 canvas.drawCustomShape(with: verticesoftriangles1)
 
 //Write "Travis Scott"
-canvas.drawText(message: "Travis Scott", at: Point(x: 95, y: 525), size: 21, kerning: 10)
+canvas.drawText(message: "Travis Scott", at: Point(x: 60, y: 525), size: 45, kerning: 2)
 
 //Come back later
 //Write Nov. 6, 2021 (date of the concert)
@@ -91,8 +91,8 @@ for xposTriangle1 in stride(from: 0, through: 189, by: 75) {
 }
 
 //Circle grid (left half)
-canvas.fillColor = .white
-for yposoriginCircle in stride(from: 25, through: 225, by: 100) {
+canvas.fillColor = .red
+for yposoriginCircle in stride(from: 25, through: 325, by: 100) {
     for xposoriginCircle in stride(from: 25, through: 175, by: 75) {
         
         canvas.drawEllipse(at: Point(x: xposoriginCircle, y: yposoriginCircle), width: 50, height: 50)
@@ -100,7 +100,7 @@ for yposoriginCircle in stride(from: 25, through: 225, by: 100) {
     }
 }
 
-//Draw rectangles in between the grids
+//Draw rectangles in between the grids (left half)
 canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
 canvas.drawRectangle(at: Point(x: 50, y: 0), width: 25, height: 125)
 canvas.drawRectangle(at: Point(x: 125, y: 0), width: 25, height: 125)
@@ -110,12 +110,12 @@ canvas.drawRectangle(at: Point(x: 125, y: 150), width: 25, height: 150)
 //Draw horizontal triangle grid
 canvas.fillColor = Color(hue: 147, saturation: 66, brightness: 70, alpha: 100)
 for xposTriangle2 in stride(from: 250, through: 350, by: 100) {
-    for yposTriangle2 in stride(from: 0, through: 275, by: 75) {
+    for yposTriangle2 in stride(from: 0, through: 325, by: 75) {
         
         var verticesofTriangle: [Point] = []
-        verticesofTriangle.append(Point(x: xposTriangle2 + 0, y: yposTriangle2 + 25))
-        verticesofTriangle.append(Point(x: xposTriangle2 + 0 , y: yposTriangle2 + 75))
-        verticesofTriangle.append(Point(x: xposTriangle2 - 50, y: yposTriangle2 + 50))
+        verticesofTriangle.append(Point(x: xposTriangle2 + 0, y: yposTriangle2 + 0))
+        verticesofTriangle.append(Point(x: xposTriangle2 + 0 , y: yposTriangle2 + 50))
+        verticesofTriangle.append(Point(x: xposTriangle2 - 50, y: yposTriangle2 + 25))
         
         canvas.drawCustomShape(with: verticesofTriangle)
         
@@ -123,8 +123,8 @@ for xposTriangle2 in stride(from: 250, through: 350, by: 100) {
 }
 
 //Draw the circle grid (right half)
-canvas.fillColor = .white
-for yposoriginCircle1 in stride(from: 50, through: 275, by: 75) {
+canvas.fillColor = .red
+for yposoriginCircle1 in stride(from: 25, through: 325, by: 75) {
     for xposoriginCricle1 in stride(from: 275, through: 375, by: 100) {
         
         canvas.drawEllipse(at: Point(x: xposoriginCricle1, y: yposoriginCircle1), width: 50, height: 50)
@@ -132,8 +132,32 @@ for yposoriginCircle1 in stride(from: 50, through: 275, by: 75) {
     }
 }
 
-// Draw the grid
-canvas.drawAxes(withScale: true, by: 25, color: .black)
+//Draw the rectangles in between the grid (right half)
+canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
+for ypositionRectangle in stride(from: 50, through: 300, by: 75) {
+    for xpositionRecatangle in stride(from: 200, through: 325, by: 125) {
+        
+    canvas.drawRectangle(at: Point(x: xpositionRecatangle, y: ypositionRectangle), width: 100, height: 25)
+        
+    }
+}
+
+//Draw the circles in the leftmost column (top half)
+canvas.fillColor = .red
+for ypostophalfCircle in stride(from: 375, through: 600, by: 25) {
+    
+    canvas.drawEllipse(at: Point(x: 12, y: ypostophalfCircle), width: 25, height: 25)
+    canvas.drawEllipse(at: Point(x: 387, y: ypostophalfCircle), width: 25, height: 25)
+}
+
+//Draw circles in the middle of the two columns (top half)
+for xpostophalfCircle in stride(from: 37.5, through: 367, by: 25) {
+    
+    canvas.drawEllipse(at: Point(x: xpostophalfCircle, y: 487.5), width: 25, height: 25)
+    
+}
+
+
 
 
 /*:

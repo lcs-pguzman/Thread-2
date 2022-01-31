@@ -55,7 +55,17 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
 
  */
+Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
 
+//Draw rectangles in between grids (right half)
+canvas.fillColor = Color(hue: 28, saturation: 61, brightness: 96, alpha: 100)
+for ypositionRectangle in stride(from: 0, through: 250, by: 75) {
+    for xpositionRecatangle in stride(from: 200, through: 325, by: 125) {
+        
+    canvas.drawRectangle(at: Point(x: xpositionRecatangle, y: ypositionRectangle), width: 100, height: 25)
+        
+    }
+}
 
 /*:
  ## Show the Live View
