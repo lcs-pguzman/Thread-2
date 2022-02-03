@@ -77,6 +77,8 @@ canvas.drawCurve(from: Point(x: 230, y: 400),
                  control2: Point(x: 270, y: 380 ))
 
 //Draw the left arm
+canvas.defaultLineWidth = 5
+
 canvas.drawLine(from: Point(x: 185, y: 320), to: Point(x: 140, y: 320))
 
 //Draw the 3 fingers of the left arm
@@ -115,7 +117,7 @@ canvas.drawEllipse(at: Point(x: 250, y: 325),
 canvas.drawEllipse(at: Point(x: 250, y: 285),
                    width: 20, height: 20)
 
-canvas.highPerformance = true
+
 
 /*:
  ## Show the Assistant Editor

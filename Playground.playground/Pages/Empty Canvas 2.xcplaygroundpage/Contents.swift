@@ -4,7 +4,7 @@ import CanvasGraphics
 
 // Set canvas size
 let preferredWidth = 400
-let preferredHeight = 400
+let preferredHeight = 600
 
 // Create canvas
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
@@ -12,27 +12,24 @@ let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 // Show the canvas in the playground's live view
 PlaygroundPage.current.liveView = canvas
 
-//Draw the grid
-canvas.drawAxes(withScale: true, by: 50, color: .black)
+//Draw black background
+canvas.fillColor = .black
+canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
-//Loop to express pattern to go up by 50
-for someValue in stride(from: 0,
-                        through: 400,
-                        by: 50){
-    someValue
-    //Draw line from and to points in plan
-    canvas.drawLine(from: Point(x: someValue, y: 0), to: Point(x: 400, y: someValue))
+//Draw grid of circles
+canvas.fillColor = .white
+for ycircleOrigin in stride(from: 0, through: 400, by: 50) {
+    for xcircleOrigin in stride(from: 0, through: 600, by: 50) {
+        
+        canvas.drawEllipse(at: Point(x: xcircleOrigin, y: ycircleOrigin), width: 50, height: 50)
+        
     }
-
-//Draw same pattern but in the top left
-canvas.lineColor = .red
-for someValue in stride(from: 400,
-                        through: 0,
-                        by: -50) {
-   someValue
-    //Draw lines in top left
-    canvas.drawLine(from: Point(x: someValue, y: 400), to: Point(x: 0, y: someValue))
-    
-    
 }
+
+//Draw axes
+canvas.drawAxes(withScale: true, by: 50, color: .white)
+
+    
+    
+
 
