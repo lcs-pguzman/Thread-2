@@ -1,6 +1,6 @@
 //: [Previous](@previous) / [Next](@next)
 /*:
-## Canvas size
+ ## Canvas size
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
@@ -21,7 +21,7 @@ import CanvasGraphics
 let canvas = Canvas(width: preferredWidth, height: preferredHeight)
 
 // Create a turtle that can draw upon the canvas
-let turtle = Tortoise(drawingUpon: canvas)
+let t = Tortoise(drawingUpon: canvas)
 
 // Create a pen that can draw upon the canvas
 let p = Pen(drawingUpon: canvas)
@@ -41,8 +41,8 @@ PlaygroundPage.current.liveView = canvas
  */
 
 // Move the origin from the bottom-left corner of the canvas to it's centre point
-canvas.translate(to: Point(x: canvas.width / 2,
-                           y: canvas.height / 2))
+canvas.translate(to: Point(x: 100,
+                           y: 100))
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 20, color: .black)
@@ -51,27 +51,81 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
  ## Add your code
  
  Beginning on line 61, you can add your own code.
-  
+ 
  [Documentation](http://russellgordon.ca/CanvasGraphics/Documentation/) is available.
-
+ 
  */
 
 // Begin writing your code below (you can remove the examples shown)
 
-// Draw a circle, using the canvas object directly
-canvas.drawEllipse(at: Point(x: 100, y: 100), width: 25, height: 25)
+// Draw the turtle
+t.drawSelf()
 
-// Draw a vertical line, up and to the left
-p.drawTo(dx: -25, dy: 50)
+//Scale
+let scale = 20
 
-// Go back to origin
-p.goToOrigin()
+//Diagonal
+let diagonal = Int(sqrt(2)*Double(scale))
 
-// Change the pen color
-p.penColor = .red
 
-// Draw a curve, down and to the right
-p.addArc(radius: 50, angle: -45)
+//Make pen thicker
+t.lineWidth = 2
+
+// Move turtle to start
+t.penUp()
+t.left(by: 90)
+t.forward(steps: scale)
+t.right(by: 90)
+
+// Pen down
+t.penDown()
+
+// Function to drawArrow
+func drawArrow(){
+    
+    t.forward(steps: 3*scale)
+    t.right(by: 90)
+    t.forward(steps: scale)
+    t.left(by: 135)
+    t.forward(steps: diagonal*2)
+    t.left(by: 90)
+    t.forward(steps: diagonal*2)
+    t.left(by: 135)
+    t.forward(steps: scale)
+    t.right(by: 90)
+    t.forward(steps: scale*3)
+    t.left(by: 90)
+    t.forward(steps: scale*2)
+    t.left(by: 90)
+    
+    
+}
+
+// Function for moving to next row
+func movetonextRow() {
+    t.penUp()
+    t.backward(steps: scale*25)
+    t.left(by: 90)
+    t.forward(steps: scale*4)
+    t.right(by: 90)
+    t.penDown()
+}
+
+
+// Make many rows of arrows using the functions
+for _ in 1 ... 6 {
+    for _ in 1 ... 5{
+        // Arrow drawing
+        drawArrow()
+        t.penUp()
+        t.forward(steps: scale*5)
+        t.penDown()
+        
+    }
+    // Part that makes it move up
+    movetonextRow()
+}
+
 
 /*:
  ## Show the Live View
@@ -80,7 +134,7 @@ p.addArc(radius: 50, angle: -45)
  Remember to show the Live View (1 then 2):
  
  ![timeline](timeline.png "Timeline")
-
+ 
  ## Use source control
  To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
  
