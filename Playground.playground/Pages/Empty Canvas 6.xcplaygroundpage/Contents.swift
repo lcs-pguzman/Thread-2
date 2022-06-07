@@ -67,7 +67,6 @@ let scale = 20
 //Diagonal
 let diagonal = Int(sqrt(2)*Double(scale))
 
-
 //Make pen thicker
 t.lineWidth = 2
 
