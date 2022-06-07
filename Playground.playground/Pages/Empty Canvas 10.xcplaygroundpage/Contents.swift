@@ -173,30 +173,40 @@ func sadFace() {
 }
 
 // Begin drawing the pattern
+for _ in 1 ... 5 {
+    
+    // Draw a happy face
+    happyFace()
+    t.drawSelf()
 
-// Draw a happy face
-happyFace()
-t.drawSelf()
+    // Move pen to start coding sad face
+    t.right(by: 90)
+    t.penUp()
+    t.forward(steps: scale*8)
+    t.left(by: 90)
+    t.forward(steps: scale*3)
+    t.right(by: 90)
+    t.penDown()
+    t.drawSelf()
 
-t.lineWidth = 2
+    // Draw sad face
+    t.lineWidth = 2
+    sadFace()
+    t.drawSelf()
 
-// Move pen to start coding sad face
-t.right(by: 90)
-t.penUp()
-t.forward(steps: scale*8)
-t.left(by: 90)
-t.forward(steps: scale*3)
-t.right(by: 90)
-t.penDown()
-t.drawSelf()
+    // turn pen to draw next line
+    t.penUp()
+    t.right(by: 90)
+    t.forward(steps: scale*8)
+    t.left(by: 90)
+    t.forward(steps: scale*3)
+    t.right(by: 90)
+    t.drawSelf()
+    
+    t.lineWidth = 2
+    
+}
 
-// Draw sad face
-sadFace()
-t.drawSelf()
-
-// turn pen to draw next line
-t.right(by: 90)
-t.forward(steps: scale*4)
 
 
 
