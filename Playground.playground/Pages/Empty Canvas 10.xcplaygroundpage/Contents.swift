@@ -174,7 +174,7 @@ func sadFace() {
 func moveUp() {
     
     t.penUp()
-    t.backward(steps: scale*32)
+    t.backward(steps: scale*96)
     t.left(by: 90)
     t.forward(steps: scale*6)
     t.right(by: 90)
@@ -183,12 +183,10 @@ func moveUp() {
 }
 
 // loop for tessalation
-for _ in 1 ... 2 {
-    for _ in 1 ... 2 {
+for _ in 1 ... 6 {
+    for _ in 1 ... 6 {
         
-        t.drawSelf()
         happyFace()
-        t.drawSelf()
         t.penUp()
         t.forward(steps: scale*3)
         t.right(by: 90)
