@@ -46,7 +46,6 @@ canvas.translate(to: Point(x: 100,
 
 // Show a grid
 canvas.drawAxes(withScale: true, by: 10, color: .black)
-
 /*:
  ## Add your code
  
@@ -57,7 +56,7 @@ canvas.drawAxes(withScale: true, by: 10, color: .black)
  */
 
 // Begin writing your code
-
+canvas.highPerformance = true
 // Show the turtle
 t.drawSelf()
 
@@ -152,7 +151,6 @@ func drawSad() {
     
 }
 
-
 // Func for a full sad face
 func sadFace() {
     
@@ -172,63 +170,44 @@ func sadFace() {
     
 }
 
-// Begin drawing the pattern
-for _ in 1 ... 5 {
+// Func to move the tessalation up
+func moveUp() {
     
-    // Draw a happy face
-    happyFace()
-    t.drawSelf()
-
-    // Move pen to start coding sad face
-    t.right(by: 90)
     t.penUp()
-    t.forward(steps: scale*8)
+    t.backward(steps: scale*32)
     t.left(by: 90)
-    t.forward(steps: scale*3)
+    t.forward(steps: scale*6)
     t.right(by: 90)
     t.penDown()
-    t.drawSelf()
-
-    // Draw sad face
-    t.lineWidth = 2
-    sadFace()
-    t.drawSelf()
-
-    // turn pen to draw next line
-    t.penUp()
-    t.right(by: 90)
-    t.forward(steps: scale*8)
-    t.left(by: 90)
-    t.forward(steps: scale*3)
-    t.right(by: 90)
-    t.drawSelf()
-    
-    t.lineWidth = 2
     
 }
 
+// loop for tessalation
+for _ in 1 ... 2 {
+    for _ in 1 ... 2 {
+        
+        t.drawSelf()
+        happyFace()
+        t.drawSelf()
+        t.penUp()
+        t.forward(steps: scale*3)
+        t.right(by: 90)
+        t.forward(steps: scale*8)
+        t.penDown()
+        sadFace()
+        t.penUp()
+        t.forward(steps: scale*3)
+        t.right(by: 90)
+        t.forward(steps: scale*8)
+        t.penDown()
+        
+    }
+    moveUp()
+}
 
+// where am I?
+t.drawSelf()
+t.currentPosition()
+t.currentHeading()
 
-
-
-
-
-
-
-
-
-/*:
- ## Show the Live View
- Don't see any results?
- 
- Remember to show the Live View (1 then 2):
- 
- ![timeline](timeline.png "Timeline")
- 
- ## Use source control
- To keep your work organized, receive feedback, and earn a high grade in this course, regular use of source control is a must.
- 
- Please commit and push your work often.
- 
- ![source_control](source-control.png "Source Control")
- */
+canvas.highPerformance = false

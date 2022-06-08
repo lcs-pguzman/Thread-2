@@ -56,8 +56,32 @@ canvas.drawAxes(withScale: true, by: 20, color: .black)
 
  */
 
-// Code
 
+// Begin drawing the pattern
+for _ in 1 ... 5 {
+    
+    // Draw a happy face
+    t.drawSelf()
+    happyFace()
+    t.drawSelf()
+    
+    // Draw sad face
+    t.lineWidth = 2
+    sadFace()
+    t.drawSelf()
+    
+    // turn pen to draw next line
+    t.penUp()
+    t.right(by: 90)
+    t.forward(steps: scale*8)
+    t.left(by: 90)
+    t.forward(steps: scale*3)
+    t.right(by: 90)
+    t.drawSelf()
+    
+    t.lineWidth = 2
+    
+}
 
 
 /*:
