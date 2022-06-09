@@ -4,7 +4,7 @@
  
  Set the size of your desired canvas by adjusting the constants on lines 7 and 8.
  */
-let preferredWidth = 600
+let preferredWidth = 900
 let preferredHeight = 600
 /*:
  ## Required code
@@ -174,7 +174,7 @@ func sadFace() {
 func moveUp() {
     
     t.penUp()
-    t.backward(steps: scale*96)
+    t.backward(steps: scale*80)
     t.left(by: 90)
     t.forward(steps: scale*6)
     t.right(by: 90)
@@ -183,8 +183,8 @@ func moveUp() {
 }
 
 // loop for tessalation
-for _ in 1 ... 6 {
-    for _ in 1 ... 6 {
+for _ in 1 ... 5 {
+    for _ in 1 ... 5 {
         
         happyFace()
         t.penUp()
